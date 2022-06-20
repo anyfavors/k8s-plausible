@@ -2,8 +2,8 @@ apiVersion: v2
 name: plausible-analytics
 description: A Helm Chart for Plausible Analytics - a simple and privacy-friendly alternative to Google Analytics
 type: application
-version: 0.2.5
-appVersion: v1.3.0
+version: 0.2.6
+appVersion: v1.3.1
 home: https://plausible.io/
 icon: https://docs.plausible.io/img/logo.svg
 keywords:
