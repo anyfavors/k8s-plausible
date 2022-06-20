@@ -20,6 +20,7 @@ jobs:
           helmv3: 3.6.0
           command: |
             helmv3 template ./charts/plausible | kubeval --strict --kubernetes-version 1.23.6 --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master
+            helmv3 template ./charts/clickhouse | kubeval --strict --kubernetes-version 1.23.6 --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master
 
   release:
     runs-on: ubuntu-latest

@@ -246,6 +246,13 @@ spec:
             - -c
             - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin
           env:
+          {{- if .Values.baseURL }}
+          - name: BASE_URL
+            valueFrom:
+              secretKeyRef:
+                key: BASE_URL
+                name: {{ include "plausible-analytics.fullname" . }}
+          {{- end }}
             {{- if .Values.adminUser.email }}
             - name: ADMIN_USER_EMAIL
               valueFrom:
