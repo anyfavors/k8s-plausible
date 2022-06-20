@@ -1,4 +1,4 @@
-name: "Build and lint"
+name: "Lint and release"
 
 on:
   push:
@@ -6,10 +6,9 @@ on:
       - main
       - master
     
-      
 jobs:
 
-  helm:
+  helm-lint:
     name: helm-validation
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +21,26 @@ jobs:
           helmv3: 3.6.0
           command: |
             helmv3 template . | kubeval --strict --kubernetes-version 1.23.6 --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master
+
+  release:
+    runs-on: ubuntu-latest
+    needs: helm-lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
