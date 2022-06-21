@@ -3,6 +3,22 @@ entries:
   plausible-analytics:
   - apiVersion: v2
     appVersion: v1.3.5
+    created: "2022-06-21T17:38:29.257480935Z"
+    description: A Helm Chart for Plausible Analytics - a simple and privacy-friendly
+      alternative to Google Analytics
+    digest: f327cbcb3c46b53f246878e2895989dd27965813d0d2a9156ab9d368d9b9ea27
+    home: https://plausible.io/
+    icon: https://docs.plausible.io/img/logo.svg
+    keywords:
+    - plausible analytics
+    - analytics
+    name: plausible-analytics
+    type: application
+    urls:
+    - https://github.com/anyfavors/k8s-plausible/releases/download/plausible-analytics-0.2.12/plausible-analytics-0.2.12.tgz
+    version: 0.2.12
+  - apiVersion: v2
+    appVersion: v1.3.5
     created: "2022-06-21T16:43:00.02665084Z"
     description: A Helm Chart for Plausible Analytics - a simple and privacy-friendly
       alternative to Google Analytics
@@ -49,4 +65,4 @@ entries:
     urls:
     - https://github.com/anyfavors/k8s-plausible/releases/download/plausible-analytics-0.2.9/plausible-analytics-0.2.9.tgz
     version: 0.2.9
-generated: "2022-06-21T16:43:00.02666194Z"
+generated: "2022-06-21T17:38:29.257497535Z"
